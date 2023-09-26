@@ -1,24 +1,27 @@
-import { Github, Linkedin } from "lucide-react";
+import { Github, Linkedin, PlayCircleIcon } from "lucide-react";
+import NavGroup from "./nav-group";
+import Link from "next/link";
 
 function Header() {
   return (
-    <header className="container flex items-center justify-evenly border border-white py-6 mt-4 text-white rounded-xl w-3/4">
-      <div>
-        <h1 className="scroll-m-20 text-2xl font-bold tracking-tight lg:text-3xl">
-          Symphony
-        </h1>
+    <header className="container sticky top-0 flex items-center justify-evenly py-6 mt-4 text-white bg-gradient-to-r from-violet-500 to-fuchsia-500 rounded-xl w-3/4 drop-shadow-lg shadow-inner">
+      <div className="flex gap-2 items-center justify-center hover:cursor-pointer">
+        <h1 className="text-xl tracking-tight lg:text-3xl">Symphony</h1>
+        <PlayCircleIcon strokeWidth={2} size={28} />
       </div>
       <nav>
-        <ul className="flex gap-3">
-          <li>Home</li>
-          <li>About</li>
-          <li>Projects</li>
-          <li>Contact</li>
-        </ul>
+        <NavGroup />
       </nav>
       <div className="flex gap-2">
-        <Github />
-        <Linkedin />
+        <Link href="https://github.com/awonfs" target="_blank">
+          <Github />
+        </Link>
+        <Link
+          href="https://www.linkedin.com/in/eetu-r%C3%B6nkk%C3%B6-433289246/"
+          target="_blank"
+        >
+          <Linkedin />
+        </Link>
       </div>
     </header>
   );
