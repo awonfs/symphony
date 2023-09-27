@@ -22,8 +22,8 @@ function NavGroup() {
           </Link>
         </NavigationMenuItem>
         <NavigationMenuItem className="hidden md:block">
-          <Link href="/about" legacyBehavior passHref>
-            <NavigationMenuLink>About</NavigationMenuLink>
+          <Link href="/top" legacyBehavior passHref>
+            <NavigationMenuLink>Top tracks</NavigationMenuLink>
           </Link>
         </NavigationMenuItem>
       </NavigationMenuList>
