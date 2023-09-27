@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Button } from "./ui/button";
 
 function HeroSection() {
@@ -11,7 +12,7 @@ function HeroSection() {
           Search your favorite artists and songs easily with Symphony
         </span>
         <Button className="w-1/5 py-6 bg-gradient-to-r from-violet-500 to-fuchsia-500 drop-shadow-xl shadow-inner text-xl">
-          Get Started
+          <Link href="/api/login">Get started now</Link>
         </Button>
       </div>
     </div>
