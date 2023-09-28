@@ -1,4 +1,3 @@
-// app/api/callback/route.ts
 import { NextResponse } from "next/server";
 import axios from "axios";
 import { cookies } from "next/headers"; // Import cookies
@@ -9,7 +8,7 @@ export async function GET(request: Request) {
     const code = url.searchParams.get("code");
     if (!code) throw new Error("Authorization code is missing from callback");
 
-    const redirect_uri = "http://localhost:3000/api/callback";
+    const redirect_uri = process.env.NEXT_PUBLIC_REDIRECT_URI;
     const auth = `${process.env.NEXT_PUBLIC_CLIENT_ID}:${process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_SECRET}`;
     const basicAuth = Buffer.from(auth).toString("base64");
 
@@ -34,9 +33,9 @@ export async function GET(request: Request) {
     // Set the token in httpOnly cookie
     cookies().set("spotifyToken", access_token, { httpOnly: true });
 
-    return NextResponse.redirect("http://localhost:3000/search");
+    return NextResponse.redirect(`${process.env.NEXT_PUBLIC_URI}/search`);
   } catch (error) {
     console.error("Error during authentication:", error);
-    return NextResponse.redirect("http://localhost:3000/error");
+    return NextResponse.redirect(`${process.env.NEXT_PUBLIC_URI}/error`);
   }
 }
