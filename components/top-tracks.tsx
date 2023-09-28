@@ -9,11 +9,11 @@ function TopTracks({ token }: { token: string }) {
 
   return (
     <div className="flex flex-col items-start bg-purple-700 shadow-inner drop-shadow-2xl opacity-80 rounded-lg p-4 mt-4">
-      <div>
+      <div className="w-1/2">
         {data?.items.map((item, index) => (
           <div
             key={index}
-            className="flex items-center mb-2 text-start bg-purple-600 text-lime-300 shadow-inner drop-shadow-2xl rounded-xl px-4 py-2"
+            className="flex items-center mb-2 text-start bg-purple-600 text-lime-300 shadow-inner drop-shadow-2xl rounded-xl px-4 py-2 w-3/4 overflow-scroll"
           >
             <div className="text-2xl font-bold mr-2">{index + 1}.</div>
             <div className="flex flex-col">

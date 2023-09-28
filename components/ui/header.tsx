@@ -4,7 +4,7 @@ import Link from "next/link";
 
 function Header() {
   return (
-    <header className="container flex items-center justify-evenly py-6 mt-4 text-white bg-gradient-to-r from-violet-500 to-fuchsia-500 rounded-xl w-3/4 drop-shadow-lg shadow-inner">
+    <header className="container flex items-center justify-around py-6 mt-4 text-white bg-gradient-to-r from-violet-500 to-fuchsia-500 rounded-xl w-3/4 drop-shadow-lg shadow-inner">
       <div className="flex gap-2 items-center justify-center hover:cursor-pointer">
         <PlayCircleIcon strokeWidth={2} size={28} />
         <h1 className="text-xl tracking-tight lg:text-3xl">Symphony</h1>

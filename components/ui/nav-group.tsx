@@ -5,6 +5,7 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
 } from "@/components/ui/navigation-menu";
+import { BarChart4, HomeIcon, SearchIcon } from "lucide-react";
 import Link from "next/link";
 
 function NavGroup() {
@@ -13,17 +14,23 @@ function NavGroup() {
       <NavigationMenuList className="flex gap-4">
         <NavigationMenuItem className="hidden md:block">
           <Link href="/" legacyBehavior passHref>
-            <NavigationMenuLink>Home</NavigationMenuLink>
+            <NavigationMenuLink>
+              <HomeIcon />
+            </NavigationMenuLink>
           </Link>
         </NavigationMenuItem>
         <NavigationMenuItem className="hidden md:block">
           <Link href="/search" legacyBehavior passHref>
-            <NavigationMenuLink>Search</NavigationMenuLink>
+            <NavigationMenuLink>
+              <SearchIcon />
+            </NavigationMenuLink>
           </Link>
         </NavigationMenuItem>
         <NavigationMenuItem className="hidden md:block">
           <Link href="/top" legacyBehavior passHref>
-            <NavigationMenuLink>Top tracks</NavigationMenuLink>
+            <NavigationMenuLink>
+              <BarChart4 />
+            </NavigationMenuLink>
           </Link>
         </NavigationMenuItem>
       </NavigationMenuList>
