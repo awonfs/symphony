@@ -7,3 +7,9 @@ export interface Track {
   name: string;
   artists: Artist[];
 }
+
+export interface Album {
+  id: string;
+  name: string;
+  artists: Artist[];
+}
