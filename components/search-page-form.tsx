@@ -1,4 +1,5 @@
 "use client";
+import { useSearch } from "@/lib/hooks/useSearch";
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
@@ -17,7 +18,7 @@ const formSchema = z.object({
   searchValue: z.string().min(2).max(50),
 });
 
-function SearchPageForm() {
+function SearchPageForm({ token }: { token: string }) {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -25,9 +26,20 @@ function SearchPageForm() {
     },
   });
 
+  const { data, error, isLoading } = useSearch(
+    token,
+    form.watch("searchValue")
+  );
+
   function onSubmit(values: z.infer<typeof formSchema>) {
     console.log(values);
     form.reset();
+    if (data) {
+      console.log(data.tracks.items);
+    }
+    if (error) {
+      console.error("Error fetching data:", error);
+    }
   }
 
   return (

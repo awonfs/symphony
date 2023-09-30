@@ -8,10 +8,11 @@ interface SearchResponse {
   artists: { items: Artist[] };
 }
 
+const searchType = "track";
+
 export function useSearch(
   token: string,
   query: string,
-  type: "album,artist,track",
   market?: string,
   limit: number = 10,
   offset: number = 0
@@ -20,14 +21,14 @@ export function useSearch(
     baseURL: "https://api.spotify.com/v1/",
   });
   return useQuery<SearchResponse, Error>(
-    ["search", query, type, market, limit, offset],
+    ["search", query, searchType, market, limit, offset],
     async () => {
       if (!query) throw new Error("No search query provided");
       try {
         const { data } = await axiosInstance.get<SearchResponse>("search", {
           params: {
             q: query,
-            type: type,
+            type: searchType,
             market: market,
             limit: limit,
             offset: offset,
