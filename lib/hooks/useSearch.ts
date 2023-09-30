@@ -14,7 +14,7 @@ export function useSearch(
   token: string,
   query: string,
   market?: string,
-  limit: number = 10,
+  limit: number = 8,
   offset: number = 0
 ) {
   const axiosInstance = axios.create({
@@ -40,9 +40,6 @@ export function useSearch(
         console.error("Error fetching search results:", error);
         throw error;
       }
-    },
-    {
-      enabled: !!query,
     }
   );
 }
