@@ -10,7 +10,7 @@ const ArtistCardGrid: React.FC = () => {
   if (!searchResults || !searchResults.tracks) return <></>;
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mt-6">
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-6">
       {searchResults.tracks.items.map((track) => (
         <ArtistCard
           key={track.id}

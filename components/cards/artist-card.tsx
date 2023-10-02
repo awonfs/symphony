@@ -25,7 +25,7 @@ const ArtistCard: React.FC<ArtistCardProps> = ({
   songLink,
 }) => {
   return (
-    <Card className="flex flex-col bg-gradient-to-r from-violet-500 to-fuchsia-500 drop-shadow-xl shadow-inner border-none overflow-hidden rounded-lg h-[400px] w-[300px] ">
+    <Card className="flex flex-col bg-gradient-to-r from-violet-500 to-fuchsia-500 drop-shadow-xl shadow-inner border-none rounded-lg h-[400px] w-[300px] hover:scale-105 hover:drop-shadow-2xl transition-all ">
       <CardHeader className="relative flex-grow">
         <Image
           className="rounded-t-lg"
@@ -38,12 +38,12 @@ const ArtistCard: React.FC<ArtistCardProps> = ({
         />
       </CardHeader>
       <CardContent className="px-2 py-1 mt-2"></CardContent>
-      <CardFooter className="flex flex-col items-start w-full font-semibold px-2 pb-2">
-        <CardTitle className="truncate">{songName}</CardTitle>
-        <CardDescription className="text-gray-200 truncate">
+      <CardFooter className="truncate flex flex-col items-start w-full font-semibold p-5">
+        <CardTitle className=" text-white text-base">{songName}</CardTitle>
+        <CardDescription className="text-gray-200  text-xs">
           {artistName}
         </CardDescription>
-        <CardDescription className="text-gray-300 truncate">
+        <CardDescription className="text-gray-300  text-xs">
           {albumName}
         </CardDescription>
         <Link
