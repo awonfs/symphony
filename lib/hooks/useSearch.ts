@@ -14,7 +14,7 @@ export function useSearch(
   token: string,
   query: string,
   market?: string,
-  limit: number = 8,
+  limit: number = 9,
   offset: number = 0
 ) {
   const axiosInstance = axios.create({

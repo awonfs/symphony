@@ -21,12 +21,19 @@ export interface Track {
   uri: string;
 }
 
+export interface Image {
+  height: number;
+  url: string;
+  width: number;
+}
+
 export interface Album {
   id: string;
   name: string;
   album_type: string;
   href: string;
   artists: Artist[];
+  images: Image[];
 }
 
 export interface SpotifyData {
