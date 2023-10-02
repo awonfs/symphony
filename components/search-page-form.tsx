@@ -1,6 +1,6 @@
 "use client";
-import { useSearch } from "@/lib/hooks/useSearch";
 import * as z from "zod";
+import { useSearch } from "@/lib/hooks/useSearch";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { Input } from "@/components/ui/input";
@@ -14,6 +14,8 @@ import {
 } from "@/components/ui/form";
 import { SearchIcon } from "lucide-react";
 import { useState } from "react";
+import { useAtom } from "jotai";
+import { searchDataAtom } from "@/lib/atoms/atoms";
 
 const formSchema = z.object({
   searchValue: z.string().min(2).max(50),
@@ -28,6 +30,7 @@ function SearchPageForm({ token }: { token: string }) {
   });
 
   const [query, setQuery] = useState("");
+  const [, setSearchResults] = useAtom(searchDataAtom);
 
   const { data, error, isLoading } = useSearch(token, query);
 
@@ -37,6 +40,7 @@ function SearchPageForm({ token }: { token: string }) {
     form.reset();
     if (data) {
       console.log(data.tracks.items);
+      setSearchResults({ tracks: { items: data.tracks.items } });
     }
     if (error) {
       console.error("Error fetching data:", error);
