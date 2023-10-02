@@ -13,6 +13,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { SearchIcon } from "lucide-react";
+import { useState } from "react";
 
 const formSchema = z.object({
   searchValue: z.string().min(2).max(50),
@@ -26,13 +27,13 @@ function SearchPageForm({ token }: { token: string }) {
     },
   });
 
-  const { data, error, isLoading } = useSearch(
-    token,
-    form.watch("searchValue")
-  );
+  const [query, setQuery] = useState("");
+
+  const { data, error, isLoading } = useSearch(token, query);
 
   function onSubmit(values: z.infer<typeof formSchema>) {
     console.log(values);
+    setQuery(values.searchValue);
     form.reset();
     if (data) {
       console.log(data.tracks.items);
