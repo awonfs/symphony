@@ -13,7 +13,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { SearchIcon } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useAtom } from "jotai";
 import { searchDataAtom } from "@/lib/atoms/atoms";
 
@@ -32,20 +32,21 @@ function SearchPageForm({ token }: { token: string }) {
   const [query, setQuery] = useState("");
   const [, setSearchResults] = useAtom(searchDataAtom);
 
-  const { data, error, isLoading } = useSearch(token, query);
-
+  const { data, error } = useSearch(token, query);
   function onSubmit(values: z.infer<typeof formSchema>) {
     console.log(values);
     setQuery(values.searchValue);
     form.reset();
+  }
+
+  useEffect(() => {
     if (data) {
-      console.log(data.tracks.items);
       setSearchResults({ tracks: { items: data.tracks.items } });
     }
     if (error) {
       console.error("Error fetching data:", error);
     }
-  }
+  }, [data, error, setSearchResults]);
 
   return (
     <Form {...form}>
