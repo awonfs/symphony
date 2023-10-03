@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import axios from "axios";
-import { cookies } from "next/headers"; // Import cookies
+import { cookies } from "next/headers";
 export const dynamic = "force-dynamic";
 
 export async function GET(request: Request) {
@@ -31,7 +31,7 @@ export async function GET(request: Request) {
 
     const { access_token } = response.data;
 
-    // Set the token in httpOnly cookie
+    //* Set the token in httpOnly cookie
     cookies().set("spotifyToken", access_token, { httpOnly: true });
 
     return NextResponse.redirect(`${process.env.NEXT_PUBLIC_URI}/search`);

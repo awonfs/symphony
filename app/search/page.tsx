@@ -1,4 +1,5 @@
 import { cookies } from "next/headers";
+import { Button } from "@/components/ui/button";
 import SearchPageForm from "@/components/search-page-form";
 import ArtistCardGrid from "@/components/artist-card-grid";
 import Link from "next/link";
@@ -10,8 +11,9 @@ function SearchPage() {
   if (!token) {
     return (
       <div className="container w-full text-center">
-        TopTracksPage
-        <Link href="/api/login">Login to see your stats</Link>
+        <Button className="w-1/5 py-6 bg-gradient-to-r from-violet-500 to-fuchsia-500 drop-shadow-xl shadow-inner text-xl">
+          <Link href="/api/login">Log in to see your stats</Link>
+        </Button>
       </div>
     );
   }
