@@ -10,15 +10,15 @@ function SearchPage() {
 
   if (!token) {
     return (
-      <div className="container w-full text-center">
-        <Button className="w-1/5 py-6 bg-gradient-to-r from-violet-500 to-fuchsia-500 drop-shadow-xl shadow-inner text-xl">
+      <div className="container flex justify-center mt-32 md:mt-8">
+        <Button className="md:w-1/5 py-6 bg-gradient-to-r from-violet-500 to-fuchsia-500 drop-shadow-xl shadow-inner text-xl">
           <Link href="/api/login">Log in to see your stats</Link>
         </Button>
       </div>
     );
   }
   return (
-    <div className="container flex flex-col w-3/4 mt-6 text-center h-screen text-white">
+    <div className="container flex flex-col md:w-3/4 mt-28 md:mt-6 text-center h-screen text-white">
       <SearchPageForm token={token.value} />
       <ArtistCardGrid />
     </div>

@@ -24,7 +24,7 @@ function Header() {
       <nav>
         <NavGroup />
       </nav>
-      <div className="flex gap-2">
+      <div className="hidden md:flex md:gap-2">
         <Link href="https://github.com/awonfs" target="_blank">
           <Github />
         </Link>
