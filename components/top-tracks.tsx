@@ -1,15 +1,23 @@
 "use client";
+import { motion } from "framer-motion";
+import useFadeInWhenInView from "@/lib/hooks/useFadeinWhenInView";
 import { useGetTopTracks } from "@/lib/hooks/useGetTopTracks";
 import Spinner from "./ui/spinner";
 
 function TopTracks({ token }: { token: string }) {
+  const { ref, controls } = useFadeInWhenInView();
   const { data, error, isLoading } = useGetTopTracks(token);
 
   if (isLoading) return <Spinner />;
   if (error) return <div>Error occurred: {error.message}</div>;
 
   return (
-    <div className="relative flex items-start bg-transparent rounded-lg p-4 mt-4 overflow-hidden">
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 50 }}
+      animate={controls}
+      className="relative flex items-start bg-transparent rounded-lg p-4 mt-4 overflow-hidden"
+    >
       <div className="absolute inset-0 bg-purple-700 opacity-60 drop-shadow-2xl shadow-inner"></div>{" "}
       <div className="relative z-10 flex flex-col w-1/2">
         {data?.items.map((item, index) => (
@@ -31,7 +39,7 @@ function TopTracks({ token }: { token: string }) {
           </div>
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 }
 

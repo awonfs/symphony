@@ -1,10 +1,19 @@
+"use client";
+import { motion } from "framer-motion";
+import useFadeInWhenInView from "@/lib/hooks/useFadeinWhenInView";
 import { Github, Linkedin, PlayCircleIcon } from "lucide-react";
 import NavGroup from "./nav-group";
 import Link from "next/link";
 
 function Header() {
+  const { controls, ref } = useFadeInWhenInView();
   return (
-    <header className="container flex items-center justify-around py-6 mt-4 text-white bg-gradient-to-r from-violet-500 to-fuchsia-500 rounded-xl w-3/4 drop-shadow-lg shadow-inner">
+    <motion.header
+      ref={ref}
+      initial={{ opacity: 0, y: -5 }}
+      animate={controls}
+      className="container flex items-center justify-around py-6 mt-4 text-white bg-gradient-to-r from-violet-500 to-fuchsia-500 rounded-xl w-3/4 drop-shadow-lg shadow-inner"
+    >
       <Link
         href="/"
         className="flex gap-2 items-center justify-center hover:cursor-pointer"
@@ -26,7 +35,7 @@ function Header() {
           <Linkedin />
         </Link>
       </div>
-    </header>
+    </motion.header>
   );
 }
 
