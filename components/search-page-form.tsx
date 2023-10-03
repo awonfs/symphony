@@ -16,12 +16,15 @@ import { SearchIcon } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useAtom } from "jotai";
 import { searchDataAtom } from "@/lib/atoms/atoms";
+import { motion } from "framer-motion";
+import useFadeInWhenInView from "@/lib/hooks/useFadeinWhenInView";
 
 const formSchema = z.object({
   searchValue: z.string().min(2).max(50),
 });
 
 function SearchPageForm({ token }: { token: string }) {
+  const { ref, controls } = useFadeInWhenInView();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -50,7 +53,10 @@ function SearchPageForm({ token }: { token: string }) {
 
   return (
     <Form {...form}>
-      <form
+      <motion.form
+        ref={ref}
+        initial={{ opacity: 0, y: 50 }}
+        animate={controls}
         onSubmit={form.handleSubmit(onSubmit)}
         className="flex flex-col gap-2 container mt-8 w-1/2"
       >
@@ -77,7 +83,7 @@ function SearchPageForm({ token }: { token: string }) {
           <SearchIcon size={18} />
           <span>Search</span>
         </Button>
-      </form>
+      </motion.form>
     </Form>
   );
 }
