@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import axios from "axios";
 import { cookies } from "next/headers"; // Import cookies
+export const dynamic = "force-dynamic";
 
 export async function GET(request: Request) {
   try {
