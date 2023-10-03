@@ -9,7 +9,7 @@ export async function GET(request: Request) {
     if (!code) throw new Error("Authorization code is missing from callback");
 
     const redirect_uri = process.env.NEXT_PUBLIC_REDIRECT_URI;
-    const auth = `${process.env.NEXT_PUBLIC_CLIENT_ID}:${process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_SECRET}`;
+    const auth = `${process.env.CLIENT_ID}:${process.env.SPOTIFY_CLIENT_SECRET}`;
     const basicAuth = Buffer.from(auth).toString("base64");
 
     const response = await axios.post(
