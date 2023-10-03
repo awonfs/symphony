@@ -6,10 +6,9 @@ import Spinner from "./ui/spinner";
 
 function TopTracks({ token }: { token: string }) {
   const { ref, controls } = useFadeInWhenInView();
-  const { data, error, isLoading } = useGetTopTracks(token);
+  const { data, isLoading } = useGetTopTracks(token);
 
   if (isLoading) return <Spinner />;
-  if (error) return <div>Error occurred: {error.message}</div>;
 
   return (
     <motion.div
@@ -19,7 +18,7 @@ function TopTracks({ token }: { token: string }) {
       className="relative flex items-start bg-transparent rounded-lg p-4 mt-4 overflow-hidden"
     >
       <div className="absolute inset-0 bg-purple-700 opacity-60 drop-shadow-2xl shadow-inner"></div>{" "}
-      <div className="relative z-10 flex flex-col w-1/2">
+      <div className="relative z-10 flex flex-col w-full md:w-1/2">
         {data?.items.map((item, index) => (
           <div
             key={index}

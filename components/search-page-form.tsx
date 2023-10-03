@@ -58,7 +58,7 @@ function SearchPageForm({ token }: { token: string }) {
         initial={{ opacity: 0, y: 50 }}
         animate={controls}
         onSubmit={form.handleSubmit(onSubmit)}
-        className="flex flex-col gap-2 container mt-8 w-1/2"
+        className="flex flex-col gap-2 container mt-8 md:w-1/2"
       >
         <FormField
           control={form.control}
@@ -78,7 +78,7 @@ function SearchPageForm({ token }: { token: string }) {
         />
         <Button
           type="submit"
-          className="w-1/4 flex items-center gap-1 bg-gradient-to-r from-violet-500 to-fuchsia-500 drop-shadow-xl shadow-inner text-lg"
+          className="md:w-1/4 flex items-center gap-1 bg-gradient-to-r from-violet-500 to-fuchsia-500 drop-shadow-xl shadow-inner text-lg"
         >
           <SearchIcon size={18} />
           <span>Search</span>
