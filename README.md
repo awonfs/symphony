@@ -1,36 +1,85 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Symphony: Harmonize Your Spotify Experience
 
-## Getting Started
+## Overview
 
-First, run the development server:
+Symphony is a web application designed to enhance your Spotify experience by providing additional features and insights into your listening habits. Not only can you search for your favorite artists, albums, and songs, but you can also delve into a retrospective view of your musical journey over the past 4 weeks.
 
-```bash
+Key Features:
+
+- **Search Functionality**: Explore the vast Spotify library, searching for artists, albums, and songs to discover new music or revisit old favorites.
+- **Listening History**: View your most listened to songs over the past 4 weeks, providing a snapshot into your recent musical preferences.
+
+## Table of Contents
+
+- [Overview](#overview)
+- [Installation](#installation)
+- [Prerequisites](#prerequisites)
+- [Steps](#steps)
+- [Usage](#usage)
+- [Contribute](#contribute)
+- [Credits](#credits)
+
+## Installation
+
+To get Symphony up and running on your local machine, follow these steps:
+
+### Prerequisites
+
+- Ensure you have [Node.js](https://nodejs.org/) installed.
+- A Spotify Developer account and a set of credentials (Client ID and Client Secret). Visit [Spotify Developer Dashboard](https://developer.spotify.com/dashboard/) to get these.
+
+### Steps
+
+1. **Clone the Repository:**
+   ```shell
+   git clone https://github.com/yourusername/symphony.git
+   cd symphony
+   ```
+2. **Install Dependencies:**
+   ```shell
+   npm install
+   ```
+3. Setup Environment Variables:
+
+   Create a .env.local file in the root directory.
+   Add these values to your env file:
+
+   ```shell
+   CLIENT_ID="ADDVALUE"
+   SPOTIFY_CLIENT_SECRET="ADDVALUE"
+   NEXT_PUBLIC_REDIRECT_URI=http://localhost:3000/api/callback
+   NEXT_PUBLIC_URI=http://localhost:3000
+   ```
+
+4. **Start the Server:**
+
+```shell
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Navigate to http://localhost:3000 in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+##Usage
+Login
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Start by logging in with your Spotify account. You'll be redirected to the Spotify login page.
 
-## Learn More
+Explore
 
-To learn more about Next.js, take a look at the following resources:
+Search: Use the search bar to find artists, albums, or tracks. Click on the items in the search results to view more details.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+My Tracks: Visit the "My Tracks" section to view a list of your most listened to songs over the past 4 weeks.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+##Contribute
 
-## Deploy on Vercel
+1. Fork the Project
+2. Create your Feature Branch (git checkout -b feature/NewFeature)
+3. Commit your Changes (git commit -m 'Add some NewFeature')
+4. Push to the Branch (git push origin feature/NewFeature)
+5. Open a Pull Request
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Credits
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Developed by Eetu Rönkkö.
+
+Special thanks to the Spotify API for enabling the functionality of this app.
