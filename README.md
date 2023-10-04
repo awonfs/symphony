@@ -60,6 +60,7 @@ npm run dev
 Navigate to http://localhost:3000 in your browser.
 
 ##Usage
+
 Login
 
 Start by logging in with your Spotify account. You'll be redirected to the Spotify login page.
@@ -68,7 +69,7 @@ Explore
 
 Search: Use the search bar to find artists, albums, or tracks. Click on the items in the search results to view more details.
 
-My Tracks: Visit the "My Tracks" section to view a list of your most listened to songs over the past 4 weeks.
+Top tracks: Visit the "top" section to view a list of your most listened to songs over the past 4 weeks.
 
 ##Contribute
 
