@@ -1,10 +1,15 @@
 "use client";
 import * as z from "zod";
-import { useSearch } from "@/lib/hooks/useSearch";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
+import { useAtom } from "jotai";
+import { useForm } from "react-hook-form";
+import { useSearch } from "@/lib/hooks/useSearch";
+import { SearchIcon } from "lucide-react";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { searchDataAtom } from "@/lib/atoms/atoms";
+import { useEffect, useState } from "react";
 import {
   Form,
   FormControl,
@@ -12,11 +17,6 @@ import {
   FormItem,
   FormMessage,
 } from "@/components/ui/form";
-import { SearchIcon } from "lucide-react";
-import { useEffect, useState } from "react";
-import { useAtom } from "jotai";
-import { searchDataAtom } from "@/lib/atoms/atoms";
-import { motion } from "framer-motion";
 import useFadeInWhenInView from "@/lib/hooks/useFadeinWhenInView";
 
 const formSchema = z.object({
@@ -78,7 +78,7 @@ function SearchPageForm({ token }: { token: string }) {
         />
         <Button
           type="submit"
-          className="md:w-1/4 flex items-center gap-1 bg-gradient-to-r from-violet-500 to-fuchsia-500 drop-shadow-xl shadow-inner text-lg"
+          className="md:w-1/4 flex items-center gap-1 bg-primary-gradient text-lg"
         >
           <SearchIcon size={18} />
           <span>Search</span>

@@ -11,7 +11,7 @@ function SearchPage() {
   if (!token) {
     return (
       <div className="container flex justify-center mt-32 md:mt-8">
-        <Button className="md:w-1/5 py-6 bg-gradient-to-r from-violet-500 to-fuchsia-500 drop-shadow-xl shadow-inner text-xl">
+        <Button className="md:w-1/5 py-6 bg-primary-gradient text-xl">
           <Link href="/api/login">Log in to see your stats</Link>
         </Button>
       </div>

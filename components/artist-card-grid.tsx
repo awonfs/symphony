@@ -1,8 +1,8 @@
 "use client";
-import React, { useEffect } from "react";
-import ArtistCard from "./cards/artist-card";
 import { useAtom } from "jotai";
+import { useEffect } from "react";
 import { searchDataAtom } from "@/lib/atoms/atoms";
+import ArtistCard from "./cards/artist-card";
 
 const ArtistCardGrid: React.FC = () => {
   const [searchResults] = useAtom(searchDataAtom);

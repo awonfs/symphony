@@ -56,6 +56,15 @@ body {
   }
 }
 
+@layer utilities {
+  .bg-primary-gradient {
+    @apply bg-gradient-to-r from-violet-500 to-fuchsia-500 drop-shadow-xl shadow-inner;
+  }
+  .bg-primary-gradient-no-shadow {
+    @apply bg-gradient-to-r from-violet-500 to-fuchsia-500;
+  }
+}
+
 @layer base {
   * {
     @apply border-border;

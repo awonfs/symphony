@@ -41,10 +41,10 @@ function NavGroup() {
       {/* Mobile menu below */}
       <NavigationMenuList className="flex gap-4 md:hidden rounded-full drop-shadow-2xl shadow-inner">
         <NavigationMenuItem>
-          <NavigationMenuTrigger className="bg-transparent bg-gradient-to-r from-violet-500 to-fuchsia-500">
+          <NavigationMenuTrigger className="bg-transparent bg-primary-gradient-no-shadow">
             <Menu color="white" />
           </NavigationMenuTrigger>
-          <NavigationMenuContent className="bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white border-none">
+          <NavigationMenuContent className="bg-primary-gradient-no-shadow text-white border-none">
             <ul className="flex flex-col gap-3 p-6">
               <li>
                 <Link href="/" legacyBehavior passHref>

@@ -12,7 +12,7 @@ function Header() {
       ref={ref}
       initial={{ opacity: 0, y: -5 }}
       animate={controls}
-      className="container flex items-center justify-around py-6 mt-4 text-white bg-gradient-to-r from-violet-500 to-fuchsia-500 rounded-xl w-3/4 drop-shadow-lg shadow-inner"
+      className="container flex items-center justify-around py-6 mt-4 text-white bg-primary-gradient rounded-xl w-3/4"
     >
       <Link
         href="/"

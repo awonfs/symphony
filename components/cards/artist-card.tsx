@@ -1,4 +1,5 @@
 "use client";
+import { motion } from "framer-motion";
 import {
   Card,
   CardContent,
@@ -7,9 +8,8 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import Image from "next/image";
 import useFadeInWhenInView from "@/lib/hooks/useFadeinWhenInView";
 
 interface ArtistCardProps {
@@ -30,7 +30,7 @@ const ArtistCard: React.FC<ArtistCardProps> = ({
   const { ref, controls } = useFadeInWhenInView();
   return (
     <motion.div ref={ref} initial={{ opacity: 0, y: 50 }} animate={controls}>
-      <Card className="flex flex-col bg-gradient-to-r from-violet-500 to-fuchsia-500 drop-shadow-xl shadow-inner border-none rounded-lg h-[400px] w-[300px] hover:scale-105 hover:drop-shadow-2xl transition-all ">
+      <Card className="flex flex-col bg-primary-gradient border-none rounded-lg h-[400px] w-[300px] hover:scale-105 hover:drop-shadow-2xl transition-all ">
         <CardHeader className="relative flex-grow">
           <Image
             className="rounded-t-lg"

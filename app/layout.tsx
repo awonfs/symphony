@@ -1,10 +1,10 @@
 import "./globals.css";
+import type { Metadata } from "next";
+import { Quicksand } from "next/font/google";
 import { ThemeProvider } from "@/components/providers/theme-provider";
+import Header from "@/components/ui/header";
 import JotaiProvider from "@/components/providers/jotai-provider";
 import ReactQueryProvider from "@/components/providers/react-query-provider";
-import type { Metadata } from "next";
-import Header from "@/components/ui/header";
-import { Quicksand } from "next/font/google";
 
 const quicksand = Quicksand({ subsets: ["latin"] });
 
