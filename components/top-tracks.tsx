@@ -1,14 +1,24 @@
 "use client";
-import { motion } from "framer-motion";
-import useFadeInWhenInView from "@/lib/hooks/useFadeinWhenInView";
-import { useGetTopTracks } from "@/lib/hooks/useGetTopTracks";
 import Spinner from "./ui/spinner";
+import useFadeInWhenInView from "@/lib/hooks/useFadeinWhenInView";
+import Link from "next/link";
+import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { useGetTopTracks } from "@/lib/hooks/useGetTopTracks";
 
 function TopTracks({ token }: { token: string }) {
   const { ref, controls } = useFadeInWhenInView();
-  const { data, isLoading } = useGetTopTracks(token);
+  const { data, isLoading, isError } = useGetTopTracks(token);
 
   if (isLoading) return <Spinner />;
+  if (isError)
+    return (
+      <div className="container flex justify-center mt-32 md:mt-8">
+        <Button className="md:w-1/5 py-6 bg-gradient-to-r from-violet-500 to-fuchsia-500 drop-shadow-xl shadow-inner text-sm">
+          <Link href="/api/login">Log in to see your stats</Link>
+        </Button>
+      </div>
+    );
 
   return (
     <motion.div
